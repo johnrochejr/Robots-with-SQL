@@ -1,21 +1,39 @@
 const express = require('express');
-const path = require('path');
 const mustacheExpress = require('mustache-express');
-
+const data = require('./data');
 const app = express();
 
+// // Use middleware for static files
+// app.use(express.static('public'));
+
+
 app.engine('mustache', mustacheExpress());
-app.set('templates', './templates');
+app.set('views', './templates');
 app.set('view engine', 'mustache');
 
-//Listening on root
-// app.get('/todo/', function (req, res) {
-//   res.render('todo');
+
+// app.get is similar to our old friend addEventListener
+// except we are listening for requests from a
+// browser
+//
+// document.addEventListener('click', (event) => {
+//
+// })
+
+
+// Link to node is good
+// app.get('/index', function (require, response) {
+//   response.send("Watttttappppp");
 // });
 
-app.get('/index', function(require, response) {
-	response.send('Hello World!');
+app.get('/index', function (require, response) {
+  response.render("index");
 });
+
+// render from mustache, spitting out data variable
+// app.get('/index', function (require, response) {
+//   response.render(data);
+// });
 
 app.listen(3000, function() {
 	console.log('Successfully started express application, yo!');
