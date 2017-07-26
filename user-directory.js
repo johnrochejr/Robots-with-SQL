@@ -4,7 +4,8 @@ const data = require('./data');
 const app = express();
 
 // // Use middleware for static files
-// app.use(express.static('public'));
+
+app.use(express.static('public'));
 
 
 app.engine('mustache', mustacheExpress());
@@ -26,9 +27,20 @@ app.set('view engine', 'mustache');
 //   response.send("Watttttappppp");
 // });
 
-app.get('/index', function (require, response) {
-  response.render("index");
-});
+// robots showing up
+// app.get('/index', function (require, response) {
+//   response.render("index");
+// });
+
+app.get('/index', (request, response) => {
+  const user_data = {
+    image: 'https://robohash.org/blanditiisexercitationemquaerat.png?size=150x150&set=set1',
+    name: 'Hamlen Juza',
+    job: 'Engineer IV',
+    company: 'Stark, Feil and Bode',
+  }
+  response.render('index', user_data)
+})
 
 // render from mustache, spitting out data variable
 // app.get('/index', function (require, response) {
