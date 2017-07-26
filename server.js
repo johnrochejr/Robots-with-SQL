@@ -1,42 +1,51 @@
 
-// Begin Gavin code-along
-
-// Using the expressn and mustache-express libraries
+// Using the express and mustache-express libraries 1
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 
-
-// Build the express app
+// Build the express app 4
 const app = express();
 
-// Bring in our data
-const userDirectory = require('./data');
-// test that this pumps to terminal
-console.log(userDirectory);
+// Bring in our data (find it in the current directory ('./') 9
+// named 'data.js')
+const userDirectory = require(.'data');
 
-// Teach our app to use the mustache engine for rendering template
-app.engine('mustache', mustacheExpress());
+// Teach App to use the mustache engine for rendering templates 4
+// rendering = "draw" on HTML
+app.engine('mst', mustacheExpress());
 
-// Teach our app what directory to find our views (templates)
+// Teach our app what directory to find our 'views' or templates 5
+// live
 app.set('views', './views');
 
-// Teach our app to use mustache for our templates
-app.set('view engine', 'mustache');
+// Teach our app to use mustache for our templates 6
+app.set('view engine', 'mst');
 
-// // Use middleware for static files - CSS, images, videos, fonts, etc
+// Link CSS file to server.js
+// Tell App to go to 'public' for static assets
 app.use(express.static('public'));
 
-// Test that we are linked to local host correctly
-app.get('/', (request, response) => {
-  // response.send("Hello World!")
 
-  response.render('home', userDirectory);
+
+
+// test to see we're linked to local host
+// Testing to see if content is being pulled from mustache 7
+// to local
+app.get('/', (request, response) => {
+  // response.send("Hello from JS land!") 2
+
+  // response.render('home'); // 'home' is our mustache file 8
+
+  // add userDirectory to sync data.js into home.mst
+    response.render('home', userDirectory) // 9
 })
 
-// Test that we are linked to terminal correctly
-app.listen(3000, function() {
-	console.log('Successfully started express application, yo!');
-});
+
+
+// Test to see we are pumping info into terminal 3
+app.listen(3000, () => {
+  console.log('Our app is listening on port 3000!!!!!!!!!!');
+})
 
 
 
@@ -49,40 +58,62 @@ app.listen(3000, function() {
 
 
 
-// const path = require("path");
-// const data = require('./data');
 
-// app.get is similar to our old friend addEventListener
-// except we are listening for requests from a
-// browser
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ***************************************************** START
+
+// Bring in our data
+// const userDirectory = require('./data');
+// // test that this pumps to terminal
+// console.log(userDirectory);
 //
-// document.addEventListener('click', (event) => {
+// // Teach our app to use the mustache engine for rendering template
+// app.engine('mustache', mustacheExpress());
 //
+// // Teach our app what directory to find our views (templates)
+// app.set('views', './views');
+//
+// // Teach our app to use mustache for our templates
+// app.set('view engine', 'mustache');
+//
+// // // Use middleware for static files - CSS, images, videos, fonts, etc
+// app.use(express.static('public'));
+//
+// // Test that we are linked to local host correctly
+// app.get('/', (request, response) => {
+//   // response.send("Hello World!")
+//
+//   response.render('home', userDirectory);
 // })
-
-
-// Link to node is good
-// app.get('/index', function (require, response) {
-//   response.send("Watttttappppp");
+//
+// // Test that we are linked to terminal correctly
+// app.listen(3000, function() {
+// 	console.log('Successfully started express application, yo!');
 // });
 
-// robots showing up
-// app.get('/index', function (require, response) {
-//   response.render("index");
-// });
-
-// Got user data to load to mustache
-// app.get('/home', (request, response) => {
-//   const user_data = {
-//     image: 'https://robohash.org/blanditiisexercitationemquaerat.png?size=150x150&set=set1',
-//     name: 'Hamlen Juza',
-//     job: 'Engineer IV',
-//     company: 'Stark, Feil and Bode',
-//   }
-//   response.render('home', user_data)
-// })
-
-// render from mustache, spitting out data variable
-// app.get('/index', function (require, response) {
-//   response.render(data);
-// });
+// **************************************************** END

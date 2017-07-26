@@ -1,0 +1,29 @@
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+ }
+
+ .users {
+   display: flex;
+   flex-flow: row wrap;
+   list-style: none;
+   padding-left: 0;
+ }
+
+ .users li {
+   flex: 1;
+   border: thin solid #666;
+   border-radius: 5px;
+   padding: 1em;
+   margin: 0.5em;
+ }
+
+ a {
+   text-decoration: none;
+   color: #4777d6;
+ }
+
+ .funemployed {
+   color: #962815;
+   font-weight: bold;
+ }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>User Directory</title>
+    <link rel="stylesheet" href="screen.css">
+  </head>
+  <body>
+    <ul class="users">
+      <li>
+        <img src="https://robohash.org/68.186.255.198.png" alt="" height="100" width="100">
+        <h3><a href="#">Robot Name</a></h3>
+        <p>
+          Job Name, Employer
+        </p>
+      </li>
+      <li>
+        <img src="https://robohash.org/68.186.255.192.png" alt="" height="100" width="100">
+        <h3><a href="#">Other Bot</a></h3>
+        <p class="funemployed">
+          Available for hire
+        </p>
+      </li>
+      <li>
+        <img src="https://robohash.org/68.186.255.198.png" alt="" height="100" width="100">
+        <h3><a href="#">Robot Name</a></h3>
+        <p>
+          Job Name, Employer
+        </p>
+      </li>
+      <li>
+        <img src="https://robohash.org/68.186.255.198.png" alt="" height="100" width="100">
+        <h3><a href="#">Robot Name</a></h3>
+        <p>
+          Job Name, Employer
+        </p>
+      </li>
+      <li>
+        <img src="https://robohash.org/68.186.255.198.png" alt="" height="100" width="100">
+        <h3><a href="#">Robot Name</a></h3>
+        <p>
+          Job Name, Employer
+        </p>
+      </li>
+      <li>
+        <img src="https://robohash.org/68.186.255.198.png" alt="" height="100" width="100">
+        <h3><a href="#">Robot Name</a></h3>
+        <p>
+          Job Name, Employer
+        </p>
+      </li>
+      <li>
+        <img src="https://robohash.org/68.186.255.198.png" alt="" height="100" width="100">
+        <h3><a href="#">Robot Name</a></h3>
+        <p>
+          Job Name, Employer
+        </p>
+      </li>
+      <li>
+        <img src="https://robohash.org/68.186.255.198.png" alt="" height="100" width="100">
+        <h3><a href="#">Robot Name</a></h3>
+        <p>
+          Job Name, Employer
+        </p>
+      </li>
+    </ul>
+  </body>
+</html>
