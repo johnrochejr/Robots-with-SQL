@@ -8,7 +8,7 @@ const app = express();
 
 // Bring in our data (find it in the current directory ('./') 9
 // named 'data.js')
-const userDirectory = require(.'data');
+const userDirectory = require('./data');
 
 // Teach App to use the mustache engine for rendering templates 4
 // rendering = "draw" on HTML
@@ -25,6 +25,14 @@ app.set('view engine', 'mst');
 // Tell App to go to 'public' for static assets
 app.use(express.static('public'));
 
+// Dynamically add content to 'home' through data.js 10
+// Mustache updated with {{}}
+// (`/info/`) is new page off of local host: home
+// use backticks ``
+// sent to 'info' when click on <a>
+app.get('/info/:id', (request, response) => {
+  response.send(`info about user id = ${request.params.id}`);
+});
 
 
 
@@ -37,8 +45,8 @@ app.get('/', (request, response) => {
   // response.render('home'); // 'home' is our mustache file 8
 
   // add userDirectory to sync data.js into home.mst
-    response.render('home', userDirectory) // 9
-})
+    response.render('home', userDirectory); // 9
+});
 
 
 
