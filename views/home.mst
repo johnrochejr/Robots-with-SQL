@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>User Directory</title>
-    <link rel="stylesheet" href="screen.css">
+    <link rel="stylesheet" href="/screen.css">
   </head>
   <body>
     <body>
@@ -13,6 +13,7 @@
         <li>
           <img src="{{avatar}}" alt=""  height="100" width="100">
           <h3><a href="/info/{{id}}-{{username}}">{{name}}</a></h3>
+           <!-- ^ what we see in URL -->
           <!-- When there IS a job -->
           {{#job}}
           <p>

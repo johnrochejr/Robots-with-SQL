@@ -31,7 +31,38 @@ app.use(express.static('public'));
 // use backticks ``
 // sent to 'info' when click on <a>
 app.get('/info/:id', (request, response) => {
-  response.send(`info about user id = ${request.params.id}`);
+//
+// Get me information about the person who has id (:id, e.g.
+// ... /info/1, /info/2
+// response.send(`info about user id = ${request.params.id}`); 11
+//
+
+
+// First, get the `id` from the params (from the URL), this comes from 12
+// the `:id` part
+// request.params is an object with the id object
+//
+const requestId = parseInt(request.params.id);
+// we use parseInt() here because when we use mustache tags
+// in <h3><a href="/info/{{id}}-{{username}}">{{name}}</a></h3>",
+// the output is turned into a string
+// In this case, we want id to equal a number, so we have to use
+// parseInt in variable declaration and in our 'find' code 13
+
+// let's see what the params id is
+// console.log(`request.params.id is ${request.params.id}`);
+// this will print to terminal when I click on a robot's name 14
+
+// let's test requestId 15
+// again, click a <a> to log to console
+// console.log(` This is the value of 'requestId': ${requestId}`);
+
+// use 'find' to search our userDirectory.users array for the user with 16
+// that ID. Eventually we will use a database for this
+const foundUser = userDirectory.users.find(user => user.id === requestId);
+
+
+
 });
 
 
