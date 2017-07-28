@@ -42,7 +42,7 @@ app.get('/info/:id', (request, response) => {
 // the `:id` part
 // request.params is an object with the id object
 //
-const requestId = parseInt(request.params.id);
+  const requestId = parseInt(request.params.id);
 // we use parseInt() here because when we use mustache tags
 // in <h3><a href="/info/{{id}}-{{username}}">{{name}}</a></h3>",
 // the output is turned into a string
@@ -59,10 +59,12 @@ const requestId = parseInt(request.params.id);
 
 // use 'find' to search our userDirectory.users array for the user with 16
 // that ID. Eventually we will use a database for this
-const foundUser = userDirectory.users.find(user => user.id === requestId);
+  const foundUser = userDirectory.users.find(user => user.id === requestId);
 
-
-
+//
+// Render (draw) the 'info' mustache template *USING* the 17
+// 'foundUser' object
+  response.render('info', foundUser);
 });
 
 
@@ -83,6 +85,7 @@ app.get('/', (request, response) => {
 
 // Test to see we are pumping info into terminal 3
 app.listen(3000, () => {
+  
   console.log('Our app is listening on port 3000!!!!!!!!!!');
 })
 
