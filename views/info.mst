@@ -8,23 +8,20 @@
   <body>
     <div class="user">
       <figure>
-        <img src="{{avatar}}" alt="Portrait">
+        <img src="{{imageURL}}" alt="Portrait">
       </figure>
       <div class="contact">
-        <h1>{{name}}</h1>
+        <h1>{{username}}</h1>
         <p>
-          {{#address.city}}
-          {{address.city}},
-          {{/address.city}}
-          {{address.country}} |
+          {{city}},
           {{#job}}
           {{job}}, {{company}}
           {{/job}}
           {{^job}}
-          <span class="funemplyed">Available for Hire</span>
+          <span class="funemployed">Available for Hire</span>
           {{/job}}
         </p>
-        <p> {{email}} | {{phone}}</p>
+        <p> {{email}}</p>
       </div>
     </div>
       <div class="details">
@@ -33,10 +30,6 @@
           <dt>Education</dt>
           <dd>{{university}}</dd>
           {{/university}}
-          <dt>Skills</dt>
-          {{#skills}}
-          <dd>{{.}}</dd>
-          {{/skills}}
         </dl>
       </div>
     </div>

@@ -18,10 +18,22 @@ app.get('/', (request, response) => {
 });
 
 app.get('/info/:id', (request, response) => {
-  const requestId = parseInt(request.params.id);
-  const foundUser = userDirectory.users.find(user => user.id === requestId);
-  response.render('info', foundUser);
+  // const requestId = parseInt(request.params.id);
+  // const foundUser = userDirectory.users.find(user => user.id === requestId);
+  const id = request.params.id;
+  database.one('SELECT * FROM "robots" WHERE id = $1', [id])
+  .then((robotdata) => {
+  response.render('info', robotdata);
+  });
 });
+
+// app.get('/characters/:id', (req, res) => {
+//   const id = req.params.id
+//   db.oneOrNone('SELECT * FROM characters WHERE id = $1', [id])
+//     .then((data) => {
+//       res.json(data)
+//     })
+// })
 
 app.listen(3000, () => {
   console.log('Our app is listening on port 3000!');
