@@ -15,7 +15,7 @@
         <p>
           {{#address.city}}
           {{address.city}},
-          {{/address.country}}
+          {{/address.city}}
           {{address.country}} |
           {{#job}}
           {{job}}, {{company}}
@@ -32,6 +32,7 @@
           {{#university}}
           <dt>Education</dt>
           <dd>{{university}}</dd>
+          {{/university}}
           <dt>Skills</dt>
           {{#skills}}
           <dd>{{.}}</dd>

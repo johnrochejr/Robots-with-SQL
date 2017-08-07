@@ -5,7 +5,7 @@ const mustacheExpress = require('mustache-express');
 
 // Build the express app 4
 const app = express();
-
+bbbbbbbb
 // Bring in our data (find it in the current directory ('./') 9
 // named 'data.js')
 const userDirectory = require('./data');
@@ -27,7 +27,7 @@ app.use(express.static('public'));
 
 // Dynamically add content to 'home' through data.js 10
 // Mustache updated with {{}}
-// (`/info/`) is new page off of local host: home
+// (`/info/`) is new page off of local host: / (home)
 // use backticks ``
 // sent to 'info' when click on <a>
 app.get('/info/:id', (request, response) => {
@@ -85,7 +85,7 @@ app.get('/', (request, response) => {
 
 // Test to see we are pumping info into terminal 3
 app.listen(3000, () => {
-  
+
   console.log('Our app is listening on port 3000!!!!!!!!!!');
 })
 
