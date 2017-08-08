@@ -12,7 +12,7 @@
         {{#users}}
         <li>
           <img src="{{imageURL}}" alt=""  height="100" width="100">
-          <h3><a href="/info/{{id}}-{{username}}">{{name}}</a></h3>
+          <h3><a href="/info/{{id}}">{{username}}</a></h3>
            <!-- ^ what we see in URL -->
           <!-- When there IS a job -->
           {{username}}

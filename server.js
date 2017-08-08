@@ -1,9 +1,8 @@
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const app = express();
-const userDirectory = require('./data');
 const pgPromise = require('pg-promise')();
-const database = pgPromise({ database : 'robotsDatabase'})
+const db = pgPromise({ database : 'robotsDatabase'});
 
 app.engine('mst', mustacheExpress());
 app.set('views', './views');
@@ -11,101 +10,24 @@ app.set('view engine', 'mst');
 
 app.use(express.static('public'));
 
-app.get('/', (request, response) => {
-  database.any('SELECT * FROM "robots" ').then(robotdata => {
-    response.render('home', { users: robotdata });
-  })
-});
-
-app.get('/info/:id', (request, response) => {
-  // const requestId = parseInt(request.params.id);
-  // const foundUser = userDirectory.users.find(user => user.id === requestId);
-  const id = request.params.id;
-  database.one('SELECT * FROM "robots" WHERE id = $1', [id])
-  .then((robotdata) => {
-  response.render('info', robotdata);
+app.get('/', (req, res) => {
+  db.any('SELECT * FROM "robots"').then(robotdata => {
+    res.render('home', { users: robotdata });
   });
 });
 
-// app.get('/characters/:id', (req, res) => {
-//   const id = req.params.id
-//   db.oneOrNone('SELECT * FROM characters WHERE id = $1', [id])
-//     .then((data) => {
-//       res.json(data)
-//     })
-// })
+app.get('/info/:id', (req, res) => {
+  const id = req.params.id;
+  db.one('SELECT * FROM "robots" WHERE id = $1', [id])
+
+  .then(robotdata => {
+  res.render('info', robotdata)
+})
+  .catch(robotdata => {
+    res.render('form', robotdata);
+  });
+});
 
 app.listen(3000, () => {
   console.log('Our app is listening on port 3000!');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// ***************************************************** START
-
-// Bring in our data
-// const userDirectory = require('./data');
-// // test that this pumps to terminal
-// console.log(userDirectory);
-//
-// // Teach our app to use the mustache engine for rendering template
-// app.engine('mustache', mustacheExpress());
-//
-// // Teach our app what directory to find our views (templates)
-// app.set('views', './views');
-//
-// // Teach our app to use mustache for our templates
-// app.set('view engine', 'mustache');
-//
-// // // Use middleware for static files - CSS, images, videos, fonts, etc
-// app.use(express.static('public'));
-//
-// // Test that we are linked to local host correctly
-// app.get('/', (request, response) => {
-//   // response.send("Hello World!")
-//
-//   response.render('home', userDirectory);
-// })
-//
-// // Test that we are linked to terminal correctly
-// app.listen(3000, function() {
-// 	console.log('Successfully started express application, yo!');
-// });
-
-// **************************************************** END
