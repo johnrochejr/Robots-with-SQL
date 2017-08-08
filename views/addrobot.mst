@@ -6,16 +6,16 @@
     <link rel="stylesheet" href="/screen.css">
   </head>
   <body>
-    <form action="/">
+    <form action="/addId" method="post">
       <h4>Please Add Your Robot Profile</h4>
       Username:<br>
-      <input type="text" name="username" value=""><br>
+      <input type="text" name="username" autofocus="on" value=""><br>
       Email:<br>
-      <input type="email" name="email" value=""><br>
+      <input type="email" name="email" autofocus="on" value=""><br>
       University:<br>
-      <input type="text" name="university" value=""><br>
+      <input type="text" name="university" autofocus="on" value=""><br>
       Job:<br>
-      <input type="text" name="job" value="">
+      <input type="text" name="job" autofocus="on" value="">
       <button type="submit">Add Profile</button>
     </form>
   </body>
