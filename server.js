@@ -16,8 +16,6 @@ app.set('view engine', 'mst');
 
 app.use(express.static('public'));
 
-
-
 app.get('/', (req, res) => {
 	db.any('SELECT * FROM "robots"').then(robotdata => {
 		res.render('home', { users: robotdata });
@@ -65,6 +63,14 @@ app.post('/addId', (req, res) => {
     		});
     	res.redirect('/');
     }
+  });
+
+  app.delete('/info/:id', (req, res) => {
+    const id = req.params.id;
+    db.none(`DELETE FROM "robots" WHERE id = $1`, [id])
+    .then(() => {
+      res.json({ success: true });
+    });
   });
 
 app.listen(3000, () => {

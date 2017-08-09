@@ -88,3 +88,19 @@ body {
   margin-left: calc(150px + 3em);
   margin-bottom: .5em;
 }
+
+.deleteButton {
+  display: flex;
+  flex-flow: column;
+  align-items: left;
+}
+
+#deleteButton {
+  font-family: 'Abel', sans-serif;
+  width: 25%;
+  color: white;
+  background-color: red;
+  padding: 1em;
+  margin-top: 1em;
+  border: none;
+}

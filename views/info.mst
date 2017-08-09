@@ -30,8 +30,12 @@
           <dt>Education</dt>
           <dd>{{university}}</dd>
           {{/university}}
+          <div class="deleteButton">
+            <button type="button" id="deleteButton" data-id="{{id}}" name="delete">Delete User</button>
+          </div>
         </dl>
       </div>
     </div>
+    <script type="text/javascript" src="/main.js"></script>
   </body>
 </html>
